@@ -6,15 +6,28 @@ describe('Demoqa scenario', () => {
     const name = "Marta";
     const lastName = "Zapacka";
     const email = "s24zapamart@venta.lv";
-    const mobileNumber = "2134567891";
+    const number = "2134567891";
     const currentAddress = "zupa 13";
+
 
     HomePage.firstName.type(name);
     HomePage.lastName.type(lastName);
     HomePage.email.type(email);
     HomePage.femaleRadio.type();
-    HomePage.mobileNumber.type(mobileNumber);
+    HomePage.mobileNumber.type(number);
     HomePage.currentAddress.type(currentAddress);
-    
+
+    const dateOfBirth = "28 February, 1930";
+    HomePage.dateOfBirth.type();
+    const subjects = "Economics";
+    HomePage.subjects.type();
+    HomePage.musicBox.click();
+    const file = "pup.jpg";
+    HomePage.uploadPicture.selectFile();
+    const state = "NCR";
+    HomePage.state.type();
+    const city = "Delhi";
+    HomePage.city.type();
+    HomePage.submit.click();
   })
 })

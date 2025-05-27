@@ -55,5 +55,5 @@ export class HomePage extends BasePage{
     static get submit() {
         return cy.get('button#submit');
     }
-
+    
 }
