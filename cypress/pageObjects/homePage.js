@@ -1,58 +1,70 @@
 import { BasePage } from "./basePage";
 export class HomePage extends BasePage{
     static get url(){
-        return "";
+        return "/#/";
     }
 
-    static get firstName() {
+    static firstName() {
         return cy.get('input#firstName');
     }
 
-    static get lastName() {
+    static lastName() {
         return cy.get('input#lastName');
     }
 
-    static get email() {
+    static email() {
         return cy.get('input#userEmail');
     }
 
-    static get femaleRadio() {
+    static femaleRadio() {
         return cy.get('input#gender-radio-2');
     }
 
-    static get mobileNumber() {
+    static mobileNumber() {
         return cy.get('input#userNumber');
     }
 
-    static get currentAddress() {
+    static currentAddress() {
         return cy.get('textarea#currentAddress');
     }
 
-    static get dateOfBirth() {
+    static dateOfBirth() {
         return cy.get('input#dateOfBirthInput');
     }
 
-    static get subjects() {
+    static birthMonth() {
+        return cy.get('.react-datepicker__month-select');
+    }
+
+    static birthYear() {
+        return cy.get('.react-datepicker__year-select');
+    }
+
+    static birthDay() {
+        return cy.get('.react-datepicker__day--028').not(".react-datepicker__day--outside-month");
+    }
+
+    static subjects() {
         return cy.get('div#subjectsContainer');
     }
 
-    static get musicBox() {
-        return cy.get('input#hobbies-checkbox-3');
+    static musicBox() {
+        return cy.get('.custom-control-label');
     }
 
-    static get state() {
+    static state() {
         return cy.get('div#state');
     }
 
-    static get city() {
+    static city() {
         return cy.get('div#city');
     }
 
-    static get uploadPicture() {
+    static uploadPicture() {
         return cy.get('input#uploadPicture');
     }
 
-    static get submit() {
+    static submit() {
         return cy.get('button#submit');
     }
     

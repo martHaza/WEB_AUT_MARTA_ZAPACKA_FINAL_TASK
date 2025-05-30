@@ -1,8 +1,12 @@
 import { HomePage } from "../pageObjects/homePage";
 
 describe('Demoqa scenario', () => {
+   beforeEach(() => {
+      cy.visit('https://demoqa.com/automation-practice-form/')
+    });
+
   it('Demoqa scenario ', () => {
-    HomePage.visit();
+    
     const name = "Marta";
     const lastName = "Zapacka";
     const email = "s24zapamart@venta.lv";
@@ -10,24 +14,27 @@ describe('Demoqa scenario', () => {
     const currentAddress = "zupa 13";
 
 
-    HomePage.firstName.type(name);
-    HomePage.lastName.type(lastName);
-    HomePage.email.type(email);
-    HomePage.femaleRadio.type();
-    HomePage.mobileNumber.type(number);
-    HomePage.currentAddress.type(currentAddress);
+    HomePage.firstName().type(name);
+    HomePage.lastName().type(lastName);
+    HomePage.email().type(email);
+    HomePage.femaleRadio().check({ force: true });
+    HomePage.mobileNumber().type(number);
+    HomePage.currentAddress().type(currentAddress);
 
-    const dateOfBirth = "28 February, 1930";
-    HomePage.dateOfBirth.type();
-    const subjects = "Economics";
-    HomePage.subjects.type();
-    HomePage.musicBox.click();
-    const file = "pup.jpg";
-    HomePage.uploadPicture.selectFile();
-    const state = "NCR";
-    HomePage.state.type();
-    const city = "Delhi";
-    HomePage.city.type();
-    HomePage.submit.click();
+    HomePage.dateOfBirth().click();
+    HomePage.birthMonth().select("February");
+    HomePage.birthYear().select("1930");
+    HomePage.birthDay().click();
+    HomePage.subjects().type("Economics{enter}");
+    HomePage.musicBox().contains("Music").click();
+
+    HomePage.uploadPicture().selectFile('cypress/files/pup.jpg');
+    
+    HomePage.state().click();
+    HomePage.state().contains("NCR");
+
+   //  HomePage.city().contains("Delhi").click(); 
+
+    HomePage.submit().click();
   })
 })
