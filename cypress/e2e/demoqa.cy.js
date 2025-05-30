@@ -30,10 +30,9 @@ describe('Demoqa scenario', () => {
 
     HomePage.uploadPicture().selectFile('cypress/files/pup.jpg');
     
-    HomePage.state().click();
-    HomePage.state().contains("NCR");
+    HomePage.state().contains("NCR").click();
 
-   //  HomePage.city().contains("Delhi").click(); 
+    HomePage.city().contains("Delhi").click(); 
 
     HomePage.submit().click();
   })
